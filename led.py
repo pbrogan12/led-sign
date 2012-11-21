@@ -38,8 +38,8 @@ while 1:
         screen.blit(text, [x, y])
         pygame.display.update()
         if c == 4:
-            c = 0
-            twitter.get_tweets()
+            c = -1
+            tweets = twitter.get_tweets()
         else:
             pass
     else:
