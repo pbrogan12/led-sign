@@ -12,8 +12,8 @@ pygame.init()
 pygame.mouse.set_visible(0)
 screen = pygame.display.set_mode([0,0] ,pygame.FULLSCREEN)
 screen.fill([0, 0, 0])
-font = pygame.font.SysFont('astronaut',200)
-text = font.render(tweets[c] , False, (255,0,0))
+font = pygame.font.SysFont('astronaut',250)
+text = font.render(tweets[c] , False, (0,0,255), (0,0,0))
 fontSize = font.size(tweets[c])
 x = screen.get_width()
 y = screen.get_height() / 2
@@ -31,12 +31,17 @@ while 1:
     x = x + x_speed
     if x < -int(fontSize[0]):
         c += 1
-        font = pygame.font.SysFont('astronaut',200)
-        text = font.render(tweets[c], False, (255,0,0))
+        font = pygame.font.SysFont('astronaut',250)
+        text = font.render(tweets[c], False, (0,0,255), (0,0,0) )
         fontSize = font.size(tweets[c])
         x = screen.get_width() + 100
         screen.blit(text, [x, y])
         pygame.display.update()
+        if c == 4:
+            c = 0
+            twitter.get_tweets()
+        else:
+            pass
     else:
         screen.blit(text, [x, y])
         pygame.display.update()
