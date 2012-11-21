@@ -6,7 +6,6 @@
 # move a beach ball image in a pygame window with wrapping
 
 import pygame, sys, feedparser
-print "BAT"
 d = feedparser.parse('http://www.sportsnetwork.com/aspdata/clients/sportsnetwork/NFLrssscores.aspx')
 c = 0
 t = 0
@@ -48,7 +47,7 @@ while 1:
             msg1 = "THISISTHEBOMB"
             font = pygame.font.SysFont('astronaut',100)
             text = font.render(msg + msg1, False, (255,0,0))
-            print text, msg, msg1
+            fontSize = font.size(msg + msg1)
             x = 1080
             screen.blit(text, [x, y])
             pygame.display.update()
