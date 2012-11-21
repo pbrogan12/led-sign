@@ -4,5 +4,4 @@ def get_tweets():
     tweet_list = []
     for i in d.entries[:5]:
         tweet_list.append(i.title)
-    print tweet_list
-get_tweets()
+    return tweet_list
