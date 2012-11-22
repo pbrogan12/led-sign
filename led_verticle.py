@@ -26,9 +26,7 @@ while 1:
             sys.exit()
     if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
         sys.exit()
-
-    pygame.time.delay(30)
-    pygame.draw.rect(screen, [0,0,0], [x, y, fontSize[0], fontSize[1]], 0)
+    pygame.time.delay(20)
     y = y + y_speed
     if y < -int(fontSize[1] * len(lines)):
         c += 1
@@ -38,7 +36,6 @@ while 1:
         for i in range(len(lines)):
             text = font.render(lines[i] , False, (0,0,255), (0,0,0))
             screen.blit(text,[x,y - (-100 * i)])
-            pygame.display.update()
         if c == len(tweets) - 1:
             c = -1
             tweets = twitter.get_tweets() + nfl.get_scores()
@@ -48,4 +45,4 @@ while 1:
         for i in range(len(lines)):
             text = font.render(lines[i] , False, (0,0,255), (0,0,0))
             screen.blit(text,[x,y - (-100 * i)])
-            pygame.display.update()
+    pygame.display.update()
