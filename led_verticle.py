@@ -5,10 +5,10 @@
 
 # move a beach ball image in a pygame window with wrapping
 
-import pygame, sys, feedparser, twitter, wordwrap
+import pygame, sys, feedparser, twitter, wordwrap, nfl
 c = 0
 counter = 0
-tweets = twitter.get_tweets()
+tweets = twitter.get_tweets() + nfl.get_scores()
 pygame.init()
 pygame.mouse.set_visible(0)
 screen = pygame.display.set_mode([0,0] ,pygame.FULLSCREEN)
@@ -39,9 +39,9 @@ while 1:
             text = font.render(lines[i] , False, (0,0,255), (0,0,0))
             screen.blit(text,[x,y - (-100 * i)])
             pygame.display.update()
-        if c == 4:
+        if c == len(tweets) - 1:
             c = -1
-            tweets = twitter.get_tweets()
+            tweets = twitter.get_tweets() + nfl.get_scores()
         else:
             pass
     else:
